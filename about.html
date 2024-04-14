@@ -51,10 +51,10 @@
                      <div class="limit-box">
                         <nav class="main-menu">
                            <ul class="menu-area-main">
-                              <li class="active">
+                              <li>
                                  <a href="index.html">Home</a>
                               </li>
-                              <li>
+                              <li class="active">
                                  <a href="about.html">About</a>
                               </li>
                               <li>
@@ -77,133 +77,168 @@
       </header>
       <!-- end header -->
       <!-- revolution slider -->
-      <div class="banner-slider">
-         <div class="container-fluid">
+      
+<div class="Blog-bg">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="Blogheading">
+               <h3>About</h3>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+      <!-- section --> 
+      <div class="section layout_padding blog_blue_bg light_silver">
+         <div class="container">
+            
             <div class="row">
-               <div class="col-md-7">
-                  <div id="slider_main" class="carousel slide" data-ride="carousel">
-                     <!-- The slideshow -->
-                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                           <img src="images/lplates.jpg" alt="#" />
-                        </div>
-                        <div class="carousel-item">
-                           <img src="images/lplates.jpg" alt="#" />
-                        </div>
+               <div class="col-md-8 offset-md-2">
+                  <div class="full">
+                     <div class="big_blog">
+                        <img class="img-responsive" src="images/blogimg.png" alt="#" />
                      </div>
-                     <!-- Left and right controls -->
-                     <a class="carousel-control-prev" href="#slider_main" data-slide="prev">
-                     <i class="fa fa-angle-left" aria-hidden="true"></i>
-                     </a>
-                     <a class="carousel-control-next" href="#slider_main" data-slide="next">
-                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                     </a>
-                  </div>
-               </div>
-               <div class="col-md-5">
-                  <div class="full slider_cont_section">
-                     <h4>Welcome to the website of:</h4>
-                     <h3>Mike Fulham - The License Plate Man</h3>
-                     <p>Hey there folks, I'm Mike and like many others in the world, I'm a long time fan of license plates. I run this blog to keep all of my fellow adventurers in plating updated on the latest hot news in the license plate world.</p>
-                     <p>When I'm not collecting and cataloging plates, I'm usually spending time driving with my plates or enjoying a nice cold one, although of course not at the same time!!!!!! Of course, that's not to mention the treasured time I spend with my beautiful wife and two daughters, who I love more than anything in the world. Anyway, I hope I can bring the kind of joy to you through my blog that my license plates have brought to me! As always, stay plating!</p>
-                     <p>- Mike</p>
-                     <div class="button_section">
-                        <a href="about.html">Read More</a>
-                        <a href="blog.html">Contact Us</a>
+                     <div class="blog_cont_2">
+                        <h3>Mike 'Murderer-behind-the-wheel' Fulham</h3>
+                        <p class="sublittle"></p>
+                        <p>There's only two things in life that Jack Blogger holds dear; the first is his license plate, and the second is the sweet satisfaction of nursing a cold brew during a tough drive. He is an avid collector of the former, scavenging through wreckages found at his local motorway junction. Throughout his years of vulturing, Jack has perfected a certain affinity for predicting the model of the vehicle involved in the wreckage, solely from the inscription on their license plate. One would assume those are two completely independent and unrelated qualities, but Jack manages anyway. He can even, on occasion, predict the exact colour of the vehicle too!</p>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- end revolution slider -->
-      <!-- section --> 
-      <div class="section layout_padding">
+      <!-- end section -->
+
+<!-- section -->
+      <section class="layout_padding">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <div class="heading">
-                     <h3>About <span class="orange_color">Us</span></h3>
+                  <div class="heading" style="padding-left: 15px;padding-right: 15px;">
+                     <h4 style="border-bottom: solid #333 1px;">Comments / 4</h4>
                   </div>
                </div>
             </div>
             <div class="row">
-               <div class="col-md-6">
-                  <img src="images/motorway.jpg" alt="#" />
-               </div>
-               <div class="col-md-6">
-                  <div class="full blog_cont">
-                     <h4>License Plate of the Day</h4>
-                     <h5 id="getdate"></h5>
-                     <p>I love license plates, more than my family, and I believe I speak from experience when I say that Ithink everybody could do with a little bit of brightness in their lives. Please enjoy my humble gift to you- the license plate of the day. Here every day, for your enjoyment:</p>
-                     
-                     <script>
-                        window.onload = function() {
-                            resultDay();
-                            getDate()
-                        };
-                    </script>
-                    <h3 id="resultday"></h3>
-                    <p>Now doesn't that just make your heart glow! Doesn't that just make you forget the voices for a moment and sink into bliss! Make sure to log on again tomorrow for more license plate fun!</p>
-                    <p>- Mike</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row margin_top_30">
-               <div class="col-md-6">
-                  <img src="images/weewoo2.jpg" alt="#" />
-               </div>
-               <div class="col-md-6">
-                  <div class="full blog_cont">
-                     <h4>What License Number Are You?</h4>
-                     <h5>MAY 19 2019  5 READ</h5>
-                     <p>Many people have been emailing me asking about what license plate number I think they would be if they were a license plate number? This is an exellent question! Due to extremely popular demand (thank you Phillip and Matt for your suggestions!), I am adding a new interactive tool to my blog, allowing you to input your name and find out what license plate number you would be if you were a license plate number!</p>
-                  
-                     <input type="text" id="textBox">
-                     <button onclick="resultName(); document.getElementById('textBox').value = '';">Submit</button>
-                     <p id="resultname"></p>
-                     <p>Please feel free to share your results with me by email! I'd love to know what you got!</p>
-                     <p>- Mike</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row margin_top_30">
                <div class="col-md-12">
-                  <div class="button_section full center margin_top_30">
-                     <a style="margin:0;" href="about.html">Read More</a>
+                  <div class="full comment_blog_line">
+                     <div class="row">
+                        <div class="col-md-1">
+                           <img src="images/c_1.png" alt="#" />
+                        </div>
+                        <div class="col-md-9">
+                           <div class="full contact_text">
+                              <h3>Matty</h3>
+                              <h4>Posted on Mar 25 / 2024 at 21:02</h4>
+                              <p>Mike? I told you to stop drinking and driving, you're going to get seriously hurt and you're worrying your family sick. You disgust me.
+                              </p>
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <a class="reply_bt" href="#">Reply</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="full comment_blog_line">
+                     <div class="row">
+                        <div class="col-md-1">
+                           <img src="images/c_5.png" alt="#" />
+                        </div>
+                        <div class="col-md-9">
+                           <div class="full contact_text">
+                              <h3>Pat</h3>
+                              <h4>Posted on Mar 26 / 2024 at 08:32</h4>
+                              <p>Please come home Mike, the children are so worried they have not stopped crying in weeks, please stop this nightmare 
+                              </p>
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <a class="reply_bt" href="#">Reply</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="full comment_blog_line">
+                     <div class="row">
+                        <div class="col-md-1">
+                           <img src="images/c_3.png" alt="#" />
+                        </div>
+                        <div class="col-md-9">
+                           <div class="full contact_text">
+                              <h3>Steve</h3>
+                              <h4>Posted on Apr 3 / 2024 at 17:29</h4>
+                              <p> ????
+                              </p>
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <a class="reply_bt" href="#">Reply</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="full comment_blog_line">
+                     <div class="row">
+                        <div class="col-md-1">
+                           <img src="images/c_4.png" alt="#" />
+                        </div>
+                        <div class="col-md-9">
+                           <div class="full contact_text">
+                              <h3>Joeseph</h3>
+                              <h4>Posted on Apr 5 / 2024 at 12:56</h4>
+                              <p>what the fuck is going on
+                              </p>
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                           <a class="reply_bt" href="#">Reply</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row margin_top_30">
+               <div class="col-md-12 margin_top_30">
+                  <div class="heading" style="padding-left: 15px;padding-right: 15px;">
+                     <h4>Post : Your Comment</h4>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full comment_form">
+                     <form action="index.html">
+                        <fieldset>
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <input type="text" name="name" placeholder="Name" required="#" />
+                                    <input type="email" name="email" placeholder="Email" required="#" />
+                                 </div>
+                                 <div class="col-md-6">
+                                    <textarea placeholder="Comment"></textarea>
+                                 </div>
+                              </div>
+                              <div class="row margin_top_30">
+                                 <div class="col-md-12">
+                                    <div class="center">
+                                       <button>Send</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </fieldset>
+                     </form>
                   </div>
                </div>
             </div>
          </div>
-      </div>
+      </section>
       <!-- end section -->
-      <!-- section --> 
-      <div class="container">
-         <div class="row">
-            <div class="col-md-8 offset-md-2">
-               <div class="heading">
-                  <h3>Blog</h3>
-               </div>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-md-6">
-               <img src="images/blog5.jpg" alt="#" />
-            </div>
-            <div class="col-md-6">
-               <div class="full blog_cont">
-                  <h4>Hey guys welcome to my blog</h4>
-                  <h5>MAY 20 2020</h5>
-                  <p>Hey there folks, Mike Fulham here. You all know that license plates have been a lifelong passion of mine, so I finally made the leap and started this blog...
-                     <a href="blog.html">Read more</a>
-                     </p>
-                  <p>- Mike</p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end section -->
+      
       <!-- footer -->
       <footer>
          <div class="container">
@@ -292,6 +327,5 @@
       <!-- Scrollbar Js Files -->
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
-      <script src="js/randdate.js" defer></script>
    </body>
 </html>

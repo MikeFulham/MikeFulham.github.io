@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NumberPlate Connections</title>
+    <link rel="stylesheet" href="./css/gamestyle.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <h1>Welcome to My Website</h1>  
+        <div class="gameContainer">
+        <div class="divTable" style="width: 16%;border: 4px solid #000;" >
+            <div class="divTableBody">
+            <div class="divTableRow">
+            <div class="divTableCell" id="tc1" onclick="update(1)">&nbsp;</div>
+            <div class="divTableCell" id="tc2" onclick="update(2)">&nbsp;</div>
+            <div class="divTableCell" id="tc3" onclick="update(3)">&nbsp;</div>
+            <div class="divTableCell" id="tc4" onclick="update(4)">&nbsp;</div>
+            </div>
+            <div class="divTableRow">
+            <div class="divTableCell" id="tc5" onclick="update(5)">&nbsp;</div>
+            <div class="divTableCell" id="tc6" onclick="update(6)">&nbsp;</div>
+            <div class="divTableCell" id="tc7" onclick="update(7)">&nbsp;</div>
+            <div class="divTableCell" id="tc8" onclick="update(8)">&nbsp;</div>
+            </div>
+            <div class="divTableRow">
+            <div class="divTableCell" id="tc9" onclick="update(9)">&nbsp;</div>
+            <div class="divTableCell" id="tc10" onclick="update(10)">&nbsp;</div>
+            <div class="divTableCell" id="tc11" onclick="update(11)">&nbsp;</div>
+            <div class="divTableCell" id="tc12" onclick="update(12)">&nbsp;</div>
+            </div>
+            <div class="divTableRow">
+            <div class="divTableCell" id="tc13" onclick="update(13)">&nbsp;</div>
+            <div class="divTableCell" id="tc14" onclick="update(14)">&nbsp;</div>
+            <div class="divTableCell" id="tc15" onclick="update(15)">&nbsp;</div>
+            <div class="divTableCell" id="tc16" onclick="update(16)">&nbsp;</div>
+            </div>
+            </div>
+            </div>
+            <a id="Score">Score: 0</a>
+            <br>
+            <a id="CatsFound"></a>
+        </div>
+    
+    </main>
+	<script>
+        var categories = [] // the correct groupings
+        var grid = [] //Current location of number paltes in the grid
+        var groups = [] // the categories
+        let score = 0
+        var correct = 0 // colour the top rows green cus they are correct
+
+        var selected = []
+
+        let plates = ["PE04ZTG","SF52EAM","WA09CNJ","SH11YSB","YF60ZJN","EY17CKX","RD09MOG","CX53LJF","LY07NRL","YB11KBJ","AY52WVS","WF57GSO","PC03SAR","NY51BHZ","SJ61UOV","RJ58UBH","LV17OYR","FG62JCV","YY06ZGO","VE14XKS","YR02VOF","KP56RVY","GX65WWN","YF63BYS","RF08BOU","KK18TGN","DN53JPJ","CA14JSX","WO17LTU","FJ55FXS","GF63CFE","SY63KHH","LC58HZG","AB64DWB","LX11TZY","FM04XFW","WN10WYO","ND12KLC","LJ17HCO","SB53WWC","RA02NLV","YR07HZZ","LN52XUV","DX54ZTH","YN17FNX","WR02GYK","YK05PLZ","LW03UXL","PN63YWY","LL67EUE","LG62RZR","RE64UAX","KP19VWA","LJ64UMK","FV13RUU","YB62ATV","FJ64TYS","CK52EWA","NV59BFZ","MA03VFP","KU59YXH","YA19NJO","RN05OSW","FY17WTV","LC05RCY","GN56KKE","GK02OZX","AO17XKP","YS15LNC","YC12WEU","HG58USS","SG53AYA","SD17OBR","HY19HDN","FY09ZFA","GN55NXC","YD15VGY","FN66XVO","DF13GZH","YJ04ZRZ","WK02FYZ","GN07UOR","DE10NLT","HT02ZJJ","SP67BWU","YY56JHU","DV67JHO","FP55HXD","PN62PAO","KX04XXN","AE02JAM","YK57RHX","YG59BVZ","SB61ECE","FN09YNG","WD66UPG","LT65WZY","GL62BCV","DX58RDZ","KM53OWV","YC07XEE","SO13BVL","HV59SKE","YD65ZJX","DY65XHA","DC09JCC","KP11KWA","VF57FDY","LG64WRN","NM05FJP"]
+        let makes =["VAUXHALL","FORD","PIAGGIO","VOLKSWAGEN","TOYOTA","TOYOTA","MORGAN","FORD","CITROEN","HONDA","ROVER","MITSUBISHI","CITROEN","FORD","FORD","VOLKSWAGEN","NISSAN","SKODA","CITROEN","AUDI","SUZUKI","VAUXHALL","FORD","MINI","NISSAN","LAND ROVER","TOYOTA","HYUNDAI","FORD","HARLEY-DAVIDSON","MERCEDES-BENZ","RENAULT","KIA","FORD","RENAULT","PEUGEOT","LAND ROVER","FORD","TOYOTA","VOLKSWAGEN","BMW","SUZUKI","RENAULT","VAUXHALL","SKODA","VAUXHALL","PEUGEOT","VAUXHALL","HYUNDAI","KIA","JAGUAR","VOLVO","HYUNDAI","MINI","MERCEDES-BENZ","LAND ROVER","CITROEN","RENAULT","RENAULT","VOLKSWAGEN","MERCEDES-BENZ","DAF TRUCKS","HONDA","FIAT","SUZUKI","IVECO","PIAGGIO","KIA","FORD","AUDI","FORD","TOYOTA","PEUGEOT","DACIA","LAND ROVER","FORD","VAUXHALL","FORD","SKODA","DUCATI","SUZUKI","PEUGEOT","MERCEDES-BENZ","CHRYSLER","FIAT","PEUGEOT","VAUXHALL","CITROEN","NISSAN","MATHIEU","PEUGEOT","BMW","AUDI","HARLEY-DAVIDSON","VAUXHALL","VAUXHALL","MERCEDES-BENZ","LAND ROVER","JOHN DEERE","PEUGEOT","BMW","HYUNDAI","RENAULT","VAUXHALL","FIAT","FORD","VAUXHALL","AUDI","MINI","FORD"]
+        let cols = ["BLACK","BLUE","BLUE","BLACK","GREY","GREY","BLACK","WHITE","WHITE","RED","BLUE","RED","SILVER","RED","BLACK","BLACK","GREEN","BLACK","BLUE","GREY","BLUE","RED","RED","BLUE","BLUE","SILVER","GREY","BLUE","GREY","BLACK","WHITE","BLUE","SILVER","WHITE","RED","BLUE","GREY","GREEN","SILVER","RED","SILVER","RED","GREY","BLUE","GREY","RED","SILVER","BLUE","SILVER","BRONZE","GREY","RED","GREY","ORANGE","BLACK","GREY","WHITE","BLACK","BLACK","GREY","BLACK","WHITE","BLUE","WHITE","BLUE","WHITE","BLUE","BLACK","SILVER","SILVER","BLUE","SILVER","GREY","BLUE","GREY","BLACK","RED","WHITE","BEIGE","BLACK","RED","BLACK","WHITE","BLUE","SILVER","BLACK","BLACK","BLUE","BLACK","YELLOW","BLUE","BLACK","WHITE","MULTI-COLOUR","WHITE","WHITE","GREY","BLACK","GREEN","SILVER","BLACK","RED","BLACK","WHITE","SILVER","WHITE","BLUE","BLACK","BLUE","BLUE"]
+
+        function getAllIndexes(arr, val) {
+            var indexes = [], i;
+            for(i = 0; i < arr.length; i++)
+                if (arr[i] === val)
+                    indexes.push(i);
+            return indexes;
+        }
+
+        function getRandom(arr, n) {
+            var result = new Array(n);
+            var len = arr.length;
+            console.log("weeee",len)
+            var taken = new Array(len);
+            if (n > len){
+                throw new RangeError("getRandom: more elements taken than available");
+            }
+            while (n--) {
+                var x = Math.floor(Math.random() * len);
+                result[n] = arr[x in taken ? taken[x] : x];
+                taken[x] = --len in taken ? taken[len] : len;
+            }
+            return result;
+        }
+
+
+        function removeItemOnce(arr, value) {
+            var index = arr.indexOf(value);
+            if (index > -1) {
+                arr.splice(index, 1);
+            }
+            return arr;
+        }
+
+        function createCategories(){
+            started = false
+            while(started == false || checkIfDuplicateExists(grid)){
+                started = true
+                grid = []
+                groups = []
+                var colCats = ["BLACK","BLUE","GREY","WHITE","SILVER","RED"]
+                var makeCats = ["MERCEDES-BENZ","PEUGEOT","VAUXHALL","TOYOTA","VOLKSWAGEN","FORD","CITROEN"]
+
+
+                t = createColourCat(colCats,cols)
+                groups.push(t[0])
+                console.log(groups)
+
+                colCats = removeItemOnce(colCats,t[0])
+                categories.push(t[1])
+                grid.push(...t[1])
+
+                t = createColourCat(colCats,cols)
+                groups.push(t[0])
+
+                colCats = removeItemOnce(colCats,t[0])
+                categories.push(t[1])
+                grid.push(...t[1])
+
+                t = createColourCat(makeCats,makes)
+                groups.push(t[0])
+                makeCats = removeItemOnce(makeCats,t[0])
+                categories.push(t[1])
+                
+                grid.push(...t[1])
+
+
+                t = createColourCat(makeCats,makes)
+                groups.push(t[0])
+                console.log(t)
+                makeCats = removeItemOnce(makeCats,t[0])
+                categories.push(t[1])
+                grid.push(...t[1])
+
+                console.log(groups)
+
+                console.log(categories)
+                
+            }   
+            grid = getRandom(grid,16)
+            updateGrid()
+
+        }
+
+        function createColourCat(colCats,arr){
+            //Chooses 4 random plates with the same colour
+            var col = colCats[Math.floor(Math.random()*colCats.length)];
+            
+            //Find 4 plates with the same colour
+            console.log(col,getAllIndexes(arr,col).length)
+            idx = getRandom(getAllIndexes(arr,col),4)
+            return [col , [plates[idx[0]],plates[idx[1]],plates[idx[2]],plates[idx[3]]].sort()]
+            
+
+        }
+
+        function updateGrid(){
+            for(var i=1; i<17;i++){
+                console.log("tc"+(i))
+                document.getElementById("tc"+(i)).textContent=grid[i-1];
+
+            }
+            if(correct == 4){
+                document.getElementById("CatsFound").textContent = "The categories were " + groups.join()
+            }
+            document.getElementById("Score").textContent = "Score: " + score
+
+        }
+
+        function checkIfCorrect(corr,arr){
+            a = JSON.stringify(corr);
+            b = JSON.stringify(arr);
+            var c = a.indexOf(b);
+            console.log(corr)
+            console.log(arr)
+            if(c != -1){
+                return true
+            }
+            return false
+        }
+
+        function checkIfDuplicateExists(arr) {
+            return new Set(arr).size !== arr.length
+        }
+
+        function idxArrayToArray(arr,idxs,shift){
+            output = []
+            for(let l =0; l<idxs.length; l++){
+                output.push(arr[idxs[l]-shift])
+            }
+            return output
+        }
+
+        function update(id){
+            console.log("Clicked on table id:",id)
+            if(selected.includes(id)){
+                selected = removeItemOnce(selected,id)
+                document.getElementById("tc"+id).classList.remove("selected");
+            }else{
+                if(selected.length < 4){
+                    //Can add this to the selected if it is not correct already
+                    if(id > correct*4){
+                        selected.push(id)
+                        document.getElementById("tc"+id).classList.add("selected");
+                    }
+
+                    //If the length of selected is now 4 we can check
+                    if(selected.length == 4){
+                        console.log("4 seleced yat!")
+                        selectedPlates = idxArrayToArray(grid,selected,1)
+                        selectedPlates.sort()
+                        if(checkIfCorrect(categories,selectedPlates) == true){
+                            score+=1000
+                            console.log("correct")
+                            //Category is correct so move it to the top of the grid
+                            grid = grid.filter(function(x) { 
+                                return selectedPlates.indexOf(x) < 0;
+                                });
+
+                            console.log(grid)
+                            grid = [ ...selectedPlates,...grid]
+                            correct +=1
+                            for(let k=0;k<4;k++){
+                                document.getElementById("tc"+selected[k]).classList.remove("selected");
+                                document.getElementById("tc"+(correct*4 - k)).classList.add("correct");
+
+                            }
+                            selected = []
+                        }else{
+                            console.log("WRONG!")
+                            score -=100
+                            for(let k=0;k<4;k++){
+                                document.getElementById("tc"+selected[k]).classList.remove("selected");
+                            }
+                            selected = []
+                        }
+
+                    }
+                }
+                
+            }
+            updateGrid()
+
+        }
+
+        createCategories()
+    </script>
+  </body>
+</html>
